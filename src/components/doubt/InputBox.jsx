@@ -38,7 +38,7 @@ const InputBox = ({ mode, onModeChange, selectedQuestion, onSend }) => {
         <div className="flex bg-muted rounded-full p-1 gap-1">
           <button
             onClick={() => onModeChange("question")}
-            className={`flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full transition-all ${
+            className={`flex items-center gap-1.5 text-xs font-medium px-3  rounded-full transition-all ${
               mode === "question"
                 ? "bg-primary text-primary-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground"
@@ -49,7 +49,7 @@ const InputBox = ({ mode, onModeChange, selectedQuestion, onSend }) => {
           </button>
           <button
             onClick={() => onModeChange("answer")}
-            className={`flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full transition-all ${
+            className={`flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full transition-all ${
               mode === "answer"
                 ? "bg-primary text-primary-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground"
@@ -73,7 +73,7 @@ const InputBox = ({ mode, onModeChange, selectedQuestion, onSend }) => {
               : "Select a question first..."
           }
           disabled={mode === "answer" && !selectedQuestion}
-          className="flex-1 bg-muted rounded-full px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-primary/30 transition-all disabled:opacity-50"
+          className="flex-1 bg-muted rounded-full px-4 py-1 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-primary/30 transition-all disabled:opacity-50"
         />
 
         <button
