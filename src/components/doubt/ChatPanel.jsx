@@ -1,10 +1,15 @@
 import { useState } from "react";
 import QuestionCard from "./QuestionCard";
 import InputBox from "./InputBox";
+import { useEffect, useRef } from "react";
+
 
 const ChatPanel = ({ questions, onUpdateQuestions, selectedQuestion, onSelectQuestion }) => {
   const [mode, setMode] = useState("question");
-
+const bottomRef = useRef(null);
+useEffect(() => {
+  bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+}, [questions]);
   const handleModeChange = (newMode) => {
     setMode(newMode);
     if (newMode === "question") onSelectQuestion(null);
@@ -24,7 +29,7 @@ const ChatPanel = ({ questions, onUpdateQuestions, selectedQuestion, onSelectQue
         timestamp: "Just now",
         answers: [],
       };
-      onUpdateQuestions([newQ, ...questions]);
+      onUpdateQuestions((prev) => [...prev, newQ]);
     } else if (mode === "answer" && selectedQuestion) {
       const newAnswer = {
         id: Date.now(),
@@ -63,6 +68,7 @@ const ChatPanel = ({ questions, onUpdateQuestions, selectedQuestion, onSelectQue
             onAnswer={handleAnswer}
           />
         ))}
+        <div ref={bottomRef} />
       </div>
 
       <InputBox
