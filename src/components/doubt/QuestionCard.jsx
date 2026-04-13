@@ -4,7 +4,7 @@ import AnswerItem from "./AnswerItem";
 const QuestionCard = ({ question, isSelected, onSelect, onAnswer }) => {
   return (
     <div
-      className={`rounded-2xl border transition-all duration-200 ${
+      className={`rounded-[2px] border transition-all duration-200 ${
         isSelected
           ? "border-primary bg-primary/5 shadow-md shadow-primary/10"
           : "border-border bg-card hover:shadow-sm"

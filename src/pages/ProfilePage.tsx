@@ -27,7 +27,7 @@ const navigate = useNavigate();
 
   toast({
     title: "Profile updated",
-    description: "✅ Your details have been saved successfully.",
+    description: "✅Your details have been saved successfully.",
   });
 
   setTimeout(() => {
@@ -49,12 +49,29 @@ const navigate = useNavigate();
           )}
         </div>
 
-        <input
-          type="file"
-          onChange={(e) =>
-            handleChange("image", URL.createObjectURL(e.target.files[0]))
-          }
-        />
+        <div className="flex flex-col items-center gap-2 mt-2">
+  
+  {/* Hidden input */}
+  <input
+    type="file"
+    id="fileUpload"
+    className="hidden"
+    onChange={(e) => {
+      const file = e.target.files?.[0];
+      if (file) {
+        handleChange("image", URL.createObjectURL(file));
+      }
+    }}
+  />
+
+  {/* Custom button */}
+  <label
+    htmlFor="fileUpload"
+    className="text-xs text-primary cursor-pointer hover:underline"
+  >
+    Choose file
+  </label>
+</div>
       </div>
 
       {/* Name */}
