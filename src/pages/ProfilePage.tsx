@@ -22,6 +22,9 @@ const navigate = useNavigate();
     setUser({ ...user, [field]: value });
   };
 
+
+
+  
   const handleSave = () => {
   localStorage.setItem("user", JSON.stringify(user));
 
